@@ -1,5 +1,5 @@
 {% set name = "hybridcontents" %}
-{% set version = "0.3.0" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6e1242a65c06174563df948e9e861611f18002e09e9916072d78c8ba0b8d5753
+  sha256: 22363ca091feeb814ebe321790f58910d1e9fa2fa4dde126d9c4dae92282f176
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -41,8 +41,9 @@ about:
   license: Apache-2.0
   license_family: APACHE
   license_file: LICENSE
-  summary: "A ContentsManager wrapper for using multiple ContentsManager in Jupyter"
-  description: "The HybridContentManager was originally created by Quantopian as part of pgcontents; however, the usage of HybridContentsManager was restricted to the compatibility requirements of pgcontents. These restrictions included postgres dependencies and no support for the latest notebook version (>6). At Viaduct we used pgcontents exclusively for the HybridContentsManager and wanted to extend its functionality, so we created this fork hybridcontents."
+  summary: A ContentsManager wrapper for using multiple ContentsManager in Jupyter
+  description: The HybridContentManager was originally created by Quantopian as part of pgcontents; however, the usage of HybridContentsManager was restricted to the compatibility requirements of pgcontents. These restrictions included postgres dependencies and no support for the latest notebook version (>6). At Viaduct
+    we used pgcontents exclusively for the HybridContentsManager and wanted to extend its functionality, so we created this fork hybridcontents.
   doc_url: https://github.com/viaduct-ai/hybridcontents
   dev_url: https://github.com/viaduct-ai/hybridcontents
 
