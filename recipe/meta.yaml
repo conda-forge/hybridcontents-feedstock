@@ -6,20 +6,20 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 6e1242a65c06174563df948e9e861611f18002e09e9916072d78c8ba0b8d5753
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
     - pip
-    - python
+    - python {{ python_min }}
   run:
-    - python
+    - python >={{ python_min }}
     - notebook
     - six >=1.9.0
     - requests >=2.7.0
@@ -31,6 +31,7 @@ test:
     - pytest
     - mock
     - nose
+    - python {{ python_min }}
   source_files:
     - hybridcontents/tests/*.py
   commands:
